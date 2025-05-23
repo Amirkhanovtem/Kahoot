@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -16,40 +16,60 @@
       margin: 40px auto;
       background-color: #ffffff;
       padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(33,0,90,0.07);
     }
-    header {
-      background-color: #1d4ed8;
-      color: white;
+    .kahoot-header {
+      background: linear-gradient(90deg, #6134cb 0%, #7955ff 100%);
+      color: #fff;
       text-align: center;
-      padding: 30px 20px;
-      border-bottom: 5px solid #f97316;
+      padding: 36px 20px 28px 20px;
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 5px 24px 0 rgba(121,85,255,0.12);
+      margin-bottom: 25px;
+      position: relative;
     }
-    header h1 {
+    .kahoot-header .kahoot-logo {
+      width: 50px;
+      vertical-align: middle;
+      margin-right: 14px;
+      transform: translateY(4px);
+    }
+    .kahoot-header h1 {
+      display: inline-block;
       margin: 0;
-      font-size: 32px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      vertical-align: middle;
     }
     h2 {
       margin-top: 30px;
       font-size: 24px;
-      color: #1d4ed8;
+      color: #7955ff;
     }
     p, li {
       font-size: 18px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     .step-img {
       display: block;
       width: 100%;
       max-width: 720px;
-      margin: 15px auto 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      margin: 18px auto 35px;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow:
+        0 4px 24px 0 rgba(110, 56, 255, 0.16),
+        0 0px 0px 8px rgba(121, 85, 255, 0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+      border: 1.5px solid #f3ebff;
     }
     .step-img:hover {
-      transform: scale(1.02);
+      box-shadow:
+        0 10px 40px 2px rgba(121, 85, 255, 0.25),
+        0 0px 0px 12px rgba(121, 85, 255, 0.10);
+      transform: scale(1.025);
     }
     .highlight {
       background: #fff7ed;
@@ -58,24 +78,31 @@
       border-radius: 8px;
       margin: 30px 0;
     }
+    ol {
+      padding-left: 18px;
+    }
     footer {
       text-align: center;
       margin-top: 50px;
       font-size: 16px;
+      color: #757575;
     }
     a {
-      color: #1d4ed8;
+      color: #7d4dff;
       text-decoration: none;
+      transition: color 0.2s;
     }
     a:hover {
+      color: #4b23bb;
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Инструкция по входу в Kahoot</h1>
-  </header>
+  <div class="kahoot-header">
+    <svg class="kahoot-logo" viewBox="0 0 50 50"><g><path fill="#fff" d="M5 25A20 20 0 1 0 45 25A20 20 0 1 0 5 25Z"/><path fill="#7955ff" d="M25 2A23 23 0 1 0 25 48A23 23 0 1 0 25 2ZM8 17.5C12 13 23.5 14.5 23.5 14.5C27.5 14.5 38 13 42 17.5C46 22 42 37 25 37C8 37 4 22 8 17.5Z"/></g></svg>
+    <h1>Вход в Kahoot: пошаговая инструкция</h1>
+  </div>
 
   <div class="container">
     <p><strong>Уважаемые коллеги,</strong> Kahoot! предназначен только для использования в Учебном центре. Использование в личных целях запрещено.</p>
