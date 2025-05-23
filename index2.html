@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -96,23 +96,51 @@
       color: #4b23bb;
       text-decoration: underline;
     }
+    .lang-switch {
+      text-align: right;
+      max-width: 960px;
+      margin: 24px auto 0;
+      padding-right: 40px;
+    }
+    .lang-switch button {
+      margin-right: 8px;
+      font-size: 15px;
+      padding: 5px 16px;
+      border-radius: 8px;
+      border: none;
+      background: #ece5ff;
+      color: #4b23bb;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.18s;
+    }
+    .lang-switch button.active, .lang-switch button:hover {
+      background: #7955ff;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+  <div class="lang-switch">
+    <button id="lang-ru">Рус</button>
+    <button id="lang-en">English</button>
+    <button id="lang-kz">Қазақша</button>
+  </div>
   <div class="kahoot-header">
     <svg class="kahoot-logo" viewBox="0 0 50 50"><g><path fill="#fff" d="M5 25A20 20 0 1 0 45 25A20 20 0 1 0 5 25Z"/><path fill="#7955ff" d="M25 2A23 23 0 1 0 25 48A23 23 0 1 0 25 2ZM8 17.5C12 13 23.5 14.5 23.5 14.5C27.5 14.5 38 13 42 17.5C46 22 42 37 25 37C8 37 4 22 8 17.5Z"/></g></svg>
-    <h1>Вход в Kahoot: пошаговая инструкция</h1>
+    <h1 id="title">Вход в Kahoot: пошаговая инструкция</h1>
   </div>
-
   <div class="container">
-    <p><strong>Уважаемые коллеги,</strong> Kahoot! предназначен только для использования в Учебном центре. Использование в личных целях запрещено.</p>
+    <p id="welcome"><strong>Уважаемые коллеги,</strong> Kahoot! предназначен только для использования в Учебном центре. Использование в личных целях запрещено.</p>
 
-    <div class="highlight">
+    <div class="highlight" id="notice">
       Пожалуйста, соблюдайте правила использования. Спасибо за понимание и сотрудничество!
     </div>
 
-    <h2>Шаги для входа:</h2>
-    <ol>
+    <h2 id="steps-title">Шаги для входа:</h2>
+    <ol id="steps-list">
       <li>Перейдите на сайт <a href="https://kahoot.com/" target="_blank">kahoot.com</a> и нажмите <strong>Log In</strong>.</li>
       <img src="1.jpg" alt="Шаг 1" class="step-img">
 
@@ -132,13 +160,104 @@
       <img src="6.jpg" alt="Главная Kahoot" class="step-img">
     </ol>
 
-    <div class="highlight">
+    <div class="highlight" id="important">
       <strong>Важно:</strong> Использование личной почты запрещено!
     </div>
 
-    <footer>
+    <footer id="footer">
       По вопросам обращайтесь: <a href="mailto:elearning.team@airastana.com">elearning.team@airastana.com</a>
     </footer>
   </div>
+  <script>
+    const translations = {
+      ru: {
+        title: "Вход в Kahoot: пошаговая инструкция",
+        welcome: "<strong>Уважаемые коллеги,</strong> Kahoot! предназначен только для использования в Учебном центре. Использование в личных целях запрещено.",
+        notice: "Пожалуйста, соблюдайте правила использования. Спасибо за понимание и сотрудничество!",
+        stepsTitle: "Шаги для входа:",
+        stepsList: `
+          <li>Перейдите на сайт <a href="https://kahoot.com/" target="_blank">kahoot.com</a> и нажмите <strong>Log In</strong>.</li>
+          <img src="1.jpg" alt="Шаг 1" class="step-img">
+          <li>Введите логин и пароль. При повторном входе с того же устройства авторизация произойдет автоматически.</li>
+          <img src="2.jpg" alt="Шаг 2" class="step-img">
+          <li>Если вы используете новое устройство, нажмите <strong>Click here to get access</strong>.</li>
+          <img src="3.jpg" alt="Шаг 3" class="step-img">
+          <li>Введите корпоративную почту: <strong>yuliya.grausbard@airastana.kz</strong> и нажмите <strong>I consent</strong>.</li>
+          <img src="4.jpg" alt="Шаг 4" class="step-img">
+          <li>Нажмите <strong>Continue</strong>.</li>
+          <img src="5.jpg" alt="Шаг 5" class="step-img">
+          <li>Вы будете перенаправлены на главную страницу Kahoot.</li>
+          <img src="6.jpg" alt="Главная Kahoot" class="step-img">
+        `,
+        important: "<strong>Важно:</strong> Использование личной почты запрещено!",
+        footer: `По вопросам обращайтесь: <a href="mailto:elearning.team@airastana.com">elearning.team@airastana.com</a>`
+      },
+      en: {
+        title: "Kahoot Login: Step-by-step Guide",
+        welcome: "<strong>Dear colleagues,</strong> Kahoot! is intended for use only within the Training Center. Personal use is strictly prohibited.",
+        notice: "Please follow the usage rules. Thank you for your understanding and cooperation!",
+        stepsTitle: "Login steps:",
+        stepsList: `
+          <li>Go to <a href="https://kahoot.com/" target="_blank">kahoot.com</a> and click <strong>Log In</strong>.</li>
+          <img src="1.jpg" alt="Step 1" class="step-img">
+          <li>Enter your username and password. When logging in again from the same device, authorization will occur automatically.</li>
+          <img src="2.jpg" alt="Step 2" class="step-img">
+          <li>If you are using a new device, click <strong>Click here to get access</strong>.</li>
+          <img src="3.jpg" alt="Step 3" class="step-img">
+          <li>Enter your corporate email: <strong>yuliya.grausbard@airastana.kz</strong> and click <strong>I consent</strong>.</li>
+          <img src="4.jpg" alt="Step 4" class="step-img">
+          <li>Click <strong>Continue</strong>.</li>
+          <img src="5.jpg" alt="Step 5" class="step-img">
+          <li>You will be redirected to the Kahoot home page.</li>
+          <img src="6.jpg" alt="Kahoot Home" class="step-img">
+        `,
+        important: "<strong>Important:</strong> Personal email addresses are prohibited!",
+        footer: `For questions, contact: <a href="mailto:elearning.team@airastana.com">elearning.team@airastana.com</a>`
+      },
+      kz: {
+        title: "Kahoot-қа кіру: қадамдық нұсқаулық",
+        welcome: "<strong>Құрметті әріптестер,</strong> Kahoot! тек Оқу орталығында пайдалануға арналған. Жеке мақсатта қолдануға тыйым салынады.",
+        notice: "Пайдалану ережелерін сақтауыңызды сұраймыз. Түсіністік пен ынтымақтастығыңызға рахмет!",
+        stepsTitle: "Кіру қадамдары:",
+        stepsList: `
+          <li><a href="https://kahoot.com/" target="_blank">kahoot.com</a> сайтына кіріп, <strong>Log In</strong> батырмасын басыңыз.</li>
+          <img src="1.jpg" alt="1-қадам" class="step-img">
+          <li>Логин мен құпиясөзді енгізіңіз. Егер сол құрылғыдан қайта кірсеңіз, жүйе автоматты түрде кіреді.</li>
+          <img src="2.jpg" alt="2-қадам" class="step-img">
+          <li>Жаңа құрылғы қолдансаңыз, <strong>Click here to get access</strong> батырмасын басыңыз.</li>
+          <img src="3.jpg" alt="3-қадам" class="step-img">
+          <li>Корпоративтік поштаңызды енгізіңіз: <strong>yuliya.grausbard@airastana.kz</strong> және <strong>I consent</strong> басыңыз.</li>
+          <img src="4.jpg" alt="4-қадам" class="step-img">
+          <li><strong>Continue</strong> басыңыз.</li>
+          <img src="5.jpg" alt="5-қадам" class="step-img">
+          <li>Сіз Kahoot басты бетіне өтесіз.</li>
+          <img src="6.jpg" alt="Kahoot басты беті" class="step-img">
+        `,
+        important: "<strong>Маңызды:</strong> Жеке пошта қолдануға тыйым салынады!",
+        footer: `Сұрақтар бойынша: <a href="mailto:elearning.team@airastana.com">elearning.team@airastana.com</a>`
+      }
+    };
+    function setLang(lang) {
+      document.getElementById('title').innerHTML = translations[lang].title;
+      document.getElementById('welcome').innerHTML = translations[lang].welcome;
+      document.getElementById('notice').innerHTML = translations[lang].notice;
+      document.getElementById('steps-title').innerHTML = translations[lang].stepsTitle;
+      document.getElementById('steps-list').innerHTML = translations[lang].stepsList;
+      document.getElementById('important').innerHTML = translations[lang].important;
+      document.getElementById('footer').innerHTML = translations[lang].footer;
+      ['ru','en','kz'].forEach(code => {
+        const btn = document.getElementById('lang-'+code);
+        if (code===lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+    document.getElementById('lang-ru').onclick = () => setLang('ru');
+    document.getElementById('lang-en').onclick = () => setLang('en');
+    document.getElementById('lang-kz').onclick = () => setLang('kz');
+    setLang('ru');
+  </script>
 </body>
 </html>
