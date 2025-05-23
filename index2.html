@@ -22,129 +22,115 @@
     .kahoot-header {
       background: linear-gradient(90deg, #6134cb 0%, #7955ff 100%);
       color: #fff;
+      text-align: center;
       padding: 36px 20px 28px 20px;
       border-radius: 0 0 18px 18px;
       box-shadow: 0 5px 24px 0 rgba(121,85,255,0.12);
       margin-bottom: 25px;
       position: relative;
-      max-width: 960px;
-      margin-left: auto;
-      margin-right: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-    .kahoot-header .header-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
     }
     .kahoot-header .kahoot-logo {
       width: 50px;
       vertical-align: middle;
+      margin-right: 14px;
       transform: translateY(4px);
-      flex-shrink: 0;
     }
     .kahoot-header h1 {
+      display: inline-block;
       margin: 0;
       font-size: 2.2rem;
       font-weight: 700;
       letter-spacing: 0.01em;
       vertical-align: middle;
-      display: inline-block;
-      white-space: nowrap;
     }
-    @media (max-width: 700px) {
-      .kahoot-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 22px 8px 22px 8px;
-        gap: 8px;
-      }
-      .kahoot-header h1 {
-        font-size: 1.2rem;
-        white-space: normal;
-      }
+    h2 {
+      margin-top: 30px;
+      font-size: 24px;
+      color: #7955ff;
     }
-    /* Dropdown Language Switcher Styles */
-    .lang-dropdown {
-      display: inline-block;
-      position: relative;
-      min-width: 120px;
-      z-index: 10;
+    p, li {
+      font-size: 18px;
+      line-height: 1.7;
     }
-    .dropdown-btn {
-      background: #f3edfe;
-      color: #7955FF;
-      font-weight: 500;
+    .step-img {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      margin: 18px auto 35px;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow:
+        0 4px 24px 0 rgba(110, 56, 255, 0.16),
+        0 0px 0px 8px rgba(121, 85, 255, 0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+      border: 1.5px solid #f3ebff;
+    }
+    .step-img:hover {
+      box-shadow:
+        0 10px 40px 2px rgba(121, 85, 255, 0.25),
+        0 0px 0px 12px rgba(121, 85, 255, 0.10);
+      transform: scale(1.025);
+    }
+    .highlight {
+      background: #fff7ed;
+      border-left: 6px solid #f97316;
+      padding: 16px;
+      border-radius: 8px;
+      margin: 30px 0;
+    }
+    ol {
+      padding-left: 18px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 16px;
+      color: #757575;
+    }
+    a {
+      color: #7d4dff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #4b23bb;
+      text-decoration: underline;
+    }
+    .lang-switch {
+      text-align: right;
+      max-width: 960px;
+      margin: 24px auto 0;
+      padding-right: 40px;
+    }
+    .lang-switch button {
+      margin-right: 8px;
+      font-size: 15px;
+      padding: 5px 16px;
+      border-radius: 8px;
       border: none;
-      border-radius: 10px;
-      padding: 7px 22px 7px 16px;
-      font-size: 15px;
-      cursor: pointer;
-      transition: background 0.18s;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 1px 3px rgba(121,85,255,0.07);
-      width: 140px;
-      justify-content: space-between;
-    }
-    .dropdown-btn:focus {
-      outline: none;
       background: #ece5ff;
-    }
-    .dropdown-list {
-      position: absolute;
-      top: 40px;
-      right: 0;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 32px 0 rgba(33,0,90,0.10);
-      min-width: 160px;
-      overflow: hidden;
-      border: 1px solid #ede7f6;
-      animation: fadeIn 0.18s;
-      z-index: 100;
-    }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px);} to { opacity: 1; transform: none;} }
-    .dropdown-option {
-      padding: 12px 18px;
+      color: #4b23bb;
       cursor: pointer;
-      font-size: 15px;
-      color: #1f2937;
-      transition: background 0.15s, color 0.18s;
-      background: #fff;
+      font-family: inherit;
+      transition: background 0.18s;
     }
-    .dropdown-option:hover,
-    .dropdown-option.selected {
-      background: #f3edfe;
-      color: #7955FF;
+    .lang-switch button.active, .lang-switch button:hover {
+      background: #7955ff;
+      color: #fff;
       font-weight: bold;
-    }
-    /* Container below header */
-    .container {
-      margin-top: 24px;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <div class="lang-switch">
+    <button id="lang-ru">Рус</button>
+    <button id="lang-en">English</button>
+    <button id="lang-kz">Қазақша</button>
+  </div>
   <div class="kahoot-header">
-    <div class="header-left">
-      <svg class="kahoot-logo" viewBox="0 0 50 50"><g><path fill="#fff" d="M5 25A20 20 0 1 0 45 25A20 20 0 1 0 5 25Z"/><path fill="#7955ff" d="M25 2A23 23 0 1 0 25 48A23 23 0 1 0 25 2ZM8 17.5C12 13 23.5 14.5 23.5 14.5C27.5 14.5 38 13 42 17.5C46 22 42 37 25 37C8 37 4 22 8 17.5Z"/></g></svg>
-      <h1 id="title">Вход в Kahoot: пошаговая инструкция</h1>
-    </div>
-    <div class="lang-dropdown" id="langDropdown">
-      <button id="current-lang" class="dropdown-btn" type="button">
-        <span id="current-lang-text">Русский</span>
-        <svg width="14" height="14" style="margin-left:6px;" viewBox="0 0 20 20"><path fill="#7955FF" d="M7 8l3 3 3-3z"/></svg>
-      </button>
-      <div class="dropdown-list" id="dropdown-list" style="display:none;">
-        <div class="dropdown-option" data-lang="ru">Русский</div>
-        <div class="dropdown-option" data-lang="en">English</div>
-        <div class="dropdown-option" data-lang="kz">Қазақша</div>
-      </div>
-    </div>
+    <svg class="kahoot-logo" viewBox="0 0 50 50"><g><path fill="#fff" d="M5 25A20 20 0 1 0 45 25A20 20 0 1 0 5 25Z"/><path fill="#7955ff" d="M25 2A23 23 0 1 0 25 48A23 23 0 1 0 25 2ZM8 17.5C12 13 23.5 14.5 23.5 14.5C27.5 14.5 38 13 42 17.5C46 22 42 37 25 37C8 37 4 22 8 17.5Z"/></g></svg>
+    <h1 id="title">Вход в Kahoot: пошаговая инструкция</h1>
   </div>
   <div class="container">
     <p id="welcome"><strong>Уважаемые коллеги,</strong> Kahoot! предназначен только для использования в Учебном центре. Использование в личных целях запрещено.</p>
@@ -183,7 +169,6 @@
     </footer>
   </div>
   <script>
-    // Language translations
     const translations = {
       ru: {
         title: "Вход в Kahoot: пошаговая инструкция",
@@ -252,33 +237,6 @@
         footer: `Сұрақтар бойынша: <a href="mailto:elearning.team@airastana.com">elearning.team@airastana.com</a>`
       }
     };
-
-    // Dropdown logic
-    const langNames = { ru: "Русский", en: "English", kz: "Қазақша" };
-    function updateDropdownSelected(lang) {
-      document.getElementById('current-lang-text').innerText = langNames[lang];
-      document.querySelectorAll('.dropdown-option').forEach(opt=>{
-        opt.classList.toggle('selected', opt.getAttribute('data-lang')===lang);
-      });
-    }
-    document.getElementById('current-lang').onclick = function(e){
-      e.stopPropagation();
-      const dropdown = document.getElementById('dropdown-list');
-      dropdown.style.display = dropdown.style.display==="block" ? "none" : "block";
-    };
-    document.querySelectorAll('.dropdown-option').forEach(opt=>{
-      opt.onclick = function(e){
-        const lang = this.getAttribute('data-lang');
-        setLang(lang);
-        updateDropdownSelected(lang);
-        document.getElementById('dropdown-list').style.display = "none";
-      };
-    });
-    document.body.addEventListener('click', ()=>{
-      document.getElementById('dropdown-list').style.display = "none";
-    });
-
-    // Language switching
     function setLang(lang) {
       document.getElementById('title').innerHTML = translations[lang].title;
       document.getElementById('welcome').innerHTML = translations[lang].welcome;
@@ -287,9 +245,18 @@
       document.getElementById('steps-list').innerHTML = translations[lang].stepsList;
       document.getElementById('important').innerHTML = translations[lang].important;
       document.getElementById('footer').innerHTML = translations[lang].footer;
-      updateDropdownSelected(lang);
+      ['ru','en','kz'].forEach(code => {
+        const btn = document.getElementById('lang-'+code);
+        if (code===lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
     }
-    // Default language
+    document.getElementById('lang-ru').onclick = () => setLang('ru');
+    document.getElementById('lang-en').onclick = () => setLang('en');
+    document.getElementById('lang-kz').onclick = () => setLang('kz');
     setLang('ru');
   </script>
 </body>
